@@ -24,7 +24,7 @@ export class SimpleTextComponent implements ControlValueAccessor {
   controlName = 'simpleText'
   inputValue = ''
 
-  _onChange = (value: string) => { }
+  _onChange = (_: string) => { }
 
   constructor(
     @Self() @Optional() public ngControl: NgControl,
