@@ -1,9 +1,6 @@
-import { AfterViewInit, ChangeDetectorRef, Component, ComponentRef, Input, OnDestroy, OnInit, Type, ViewChild, ViewContainerRef, ViewRef } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, ComponentRef, Input, OnDestroy, ViewChild, ViewContainerRef, } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
-
-export type FilterComponents = ComponentRef<any> & {
-  controlName: string
-}
+import { FilterComponents } from '../types';
 
 @Component({
   selector: 'app-filter',
@@ -13,7 +10,7 @@ export type FilterComponents = ComponentRef<any> & {
   styleUrl: './filter.component.scss'
 })
 export class FilterComponent implements OnDestroy, AfterViewInit {
-  @Input({ required: true }) filterComponents: Type<FilterComponents>[] = [] as Type<FilterComponents>[]
+  @Input({ required: true }) filterComponents: FilterComponents[] = [] as FilterComponents[]
   @ViewChild('filtersField', { read: ViewContainerRef })
   filtersField!: ViewContainerRef;
 
@@ -28,8 +25,8 @@ export class FilterComponent implements OnDestroy, AfterViewInit {
   ngAfterViewInit(): void {
     this.filtersField.clear()
     for (const component of this.filterComponents) {
-      const newComponent = this.filtersField.createComponent<any>(component)
-      this.form.addControl(newComponent.instance['controlName'], this.fb.control(''))
+      const newComponent = this.filtersField.createComponent<typeof component>(component)
+      this.form.addControl(newComponent.instance.controlName, this.fb.control(''))
       this.componentRefs.push(newComponent)
       this.cdr.detectChanges()
     }

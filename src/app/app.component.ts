@@ -2,6 +2,7 @@ import { Component, Type } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { FilterComponent } from './components/filter/filter.component';
 import { SimpleTextComponent } from './components/filter-inputs/simple-text/simple-text.component';
+import { FilterComponents } from './components/types';
 
 @Component({
   selector: 'app-root',
@@ -12,8 +13,8 @@ import { SimpleTextComponent } from './components/filter-inputs/simple-text/simp
 })
 export class AppComponent {
   title = 'subforms';
-  filters: Type<any>[] = [
-    SimpleTextComponent
+  filters: FilterComponents[] = [
+    SimpleTextComponent as FilterComponents
   ];
 
 }
