@@ -25,8 +25,9 @@ export class FilterComponent implements OnDestroy, AfterViewInit {
   ngAfterViewInit(): void {
     this.filtersField.clear()
     for (const component of this.filterComponents) {
-      const newComponent = this.filtersField.createComponent<typeof component>(component)
-      this.form.addControl(newComponent.instance.controlName, this.fb.control(''))
+      const newComponent = this.filtersField.createComponent<typeof component>(component.component)
+      newComponent.setInput('controlName', component.controlName)
+      this.form.addControl(component.controlName, this.fb.control(''))
       this.componentRefs.push(newComponent)
       this.cdr.detectChanges()
     }

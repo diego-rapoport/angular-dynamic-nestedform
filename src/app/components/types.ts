@@ -1,5 +1,6 @@
 import { Type } from "@angular/core"
 
-export type FilterComponents = Type<any> & {
+export type FilterComponents = {
   controlName: string
+  component: Type<any>
 }

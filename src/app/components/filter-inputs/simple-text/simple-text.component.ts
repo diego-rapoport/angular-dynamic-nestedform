@@ -1,4 +1,4 @@
-import { Component, Optional, Self, forwardRef } from '@angular/core';
+import { Component, Input, Optional, Self, forwardRef } from '@angular/core';
 import { ControlContainer, ControlValueAccessor, FormGroupDirective, NG_VALUE_ACCESSOR, NgControl, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
@@ -21,7 +21,7 @@ import { ControlContainer, ControlValueAccessor, FormGroupDirective, NG_VALUE_AC
 
 })
 export class SimpleTextComponent implements ControlValueAccessor {
-  controlName = 'simpleText'
+  @Input({required: true})controlName: string = ''
   inputValue = ''
 
   _onChange = (_: string) => { }

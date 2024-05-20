@@ -1,4 +1,4 @@
-import { Component, Type } from '@angular/core';
+import { Component, } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { FilterComponent } from './components/filter/filter.component';
 import { SimpleTextComponent } from './components/filter-inputs/simple-text/simple-text.component';
@@ -14,7 +14,7 @@ import { FilterComponents } from './components/types';
 export class AppComponent {
   title = 'subforms';
   filters: FilterComponents[] = [
-    SimpleTextComponent as FilterComponents
+    {component: SimpleTextComponent, controlName: 'myText'}
   ];
 
 }
