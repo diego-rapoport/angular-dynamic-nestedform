@@ -1,0 +1,8 @@
+@if(options$ | async; as options) {
+<select name="dropdown" [formControlName]="controlName" >
+  @for(option of options; track option){
+  <option [value]="option">{{option}}</option>
+  }
+</select>
+
+}

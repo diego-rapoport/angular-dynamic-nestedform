@@ -3,6 +3,7 @@ import { RouterOutlet } from '@angular/router';
 import { FilterComponent } from './components/filter/filter.component';
 import { SimpleTextComponent } from './components/filter-inputs/simple-text/simple-text.component';
 import { FilterComponents } from './components/types';
+import { DropdownComponent } from './components/filter-inputs/dropdown/dropdown.component';
 
 @Component({
   selector: 'app-root',
@@ -14,7 +15,8 @@ import { FilterComponents } from './components/types';
 export class AppComponent {
   title = 'subforms';
   filters: FilterComponents[] = [
-    {component: SimpleTextComponent, controlName: 'myText'}
+    {component: SimpleTextComponent, controlName: 'myText'},
+    {component: DropdownComponent, controlName: 'option'}
   ];
 
 }
